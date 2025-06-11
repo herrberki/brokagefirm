@@ -69,7 +69,7 @@ public class OrderEventListener {
                 event.getCustomerId(), event.getAssetName());
 
         BigDecimal change = event.getNewBalance().subtract(event.getOldBalance()).abs();
-        BigDecimal threshold = event.getOldBalance().multiply(BigDecimal.valueOf(0.1)); // 10%
+        BigDecimal threshold = event.getOldBalance().multiply(BigDecimal.valueOf(0.1));
 
         if (change.compareTo(threshold) > 0) {
             notificationService.notifySignificantBalanceChange(
